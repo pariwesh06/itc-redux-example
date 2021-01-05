@@ -1,16 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const slice = createSlice({
     name: 'counter',
-    initialState:{
+    initialState: {
         value: 0
     },
-    reducers:{
-        increment: function(state){
+    reducers: {
+        increment: function (state) {
+            //ajax
             console.log(state.value);
             state.value += 2;
+        },
+        decrement:function (state) {
+            //ajax
+            console.log(state.value);
+            state.value -= 2;
         }
     }
 });
-export const selectCount = (state)=> state.counter.value;
-export const {increment} = slice.actions;
+export const selectCount = (state) => {
+    console.log(state.counter);
+    return state.counter.value;
+}
+export const { increment, decrement } = slice.actions;
 export default slice.reducer;
